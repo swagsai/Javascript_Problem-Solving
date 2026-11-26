@@ -38,4 +38,24 @@
 // })
 // console.log(removeDuplicate);
 
+// nested array into single array problem
+
+const arr = [1, 2, 3, [44, 5], [6, 8, [9, 10]], [1, 2, 3]];
+
+const flatterArr = (arr) =>{
+   let result = []
+
+   for(let item of arr) {
+    if(Array.isArray(item)){
+        result = result.concat(flatterArr(item))
+    }else{
+        result.push(item)
+    }
+   }
+   return result
+}
+console.log(flatterArr(arr));
+
+
+
 
